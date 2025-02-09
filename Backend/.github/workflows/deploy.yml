@@ -1,0 +1,26 @@
+name: Node.js Backend CI
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull request to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+    
+
+      - name: Install dependencies
+        run: npm install
+
+      
+
+      # No need for manual deployment, Render handles that automatically
