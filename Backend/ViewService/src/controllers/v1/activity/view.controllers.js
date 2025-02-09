@@ -8,6 +8,7 @@ const role = db.roles
 
 const viewRole = async (req, res) => {
     try {
+        console.log('1')
       let limit = req.body.page_size ? req.body.page_size : 50;
       let page = req.body.page_number ? req.body.page_number : 1;
       let offset = (page - 1) * limit;
