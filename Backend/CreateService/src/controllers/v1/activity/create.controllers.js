@@ -10,7 +10,7 @@ const createRole = async (req, res) => {
     // store the request body in a user object
     // Save User in the database
     try {
-      console.log("hfkd");
+    //   console.log("hfkd");
       let createRole;
       const { roleCode, roleName } = req.body;
   
