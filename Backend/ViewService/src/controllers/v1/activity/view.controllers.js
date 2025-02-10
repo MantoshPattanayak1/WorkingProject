@@ -1,6 +1,7 @@
 const db = require("../../../models/index");
 const statusCode = require("../../../utils/statusCode");
-const logger = require('../../../logger/logger.js')
+let logger = require('../../../logger/logger.js')
+ logger = logger()
 let {encrypt} = require('../../../middlewares/encryption.middlewares.js')
 const QueryTypes = db.QueryTypes;
 const sequelize = db.sequelize;
@@ -25,7 +26,7 @@ const viewRole = async (req, res) => {
       let paginatedShowAllRoles = showAllRoles.slice(offset, limit + offset);
       return res.status(statusCode.SUCCESS.code).json({
         message: "Show All roles",
-        Role: encrypt(JSON.stringify((paginatedShowAllRoles))),
+        Role: paginatedShowAllRoles
       });
     } catch (err) {
       logger.error(`An error occurred: ${err.message}`); // Log the error
